@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4gmpnbjs8u4u"]
+
+[ext_resource type="Script" path="res://src/MainMenu/main_menu.gd" id="1_g25y5"]
+[ext_resource type="Texture2D" uid="uid://cxdtt0h7xf1f4" path="res://sprites/main_menu/main_menu_background.jpg" id="2_jq6di"]
+
+[sub_resource type="SystemFont" id="SystemFont_axt1o"]
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_e8i6d"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_02y6e"]
+resource_local_to_scene = true
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_nteut"]
+events = [SubResource("InputEventKey_02y6e")]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g25y5")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.678431, 0.678431, 0.678431, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+pivot_offset = Vector2(683, 384)
+texture = ExtResource("2_jq6di")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+offset_left = -486.5
+offset_top = -73.0
+offset_right = 486.5
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.913725, 1, 0.905882, 0.898039)
+theme_override_fonts/font = SubResource("SystemFont_axt1o")
+theme_override_font_sizes/font_size = 106
+text = "Dance of the Abyss"
+
+[node name="PlayButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_e8i6d")
+theme_override_font_sizes/font_size = 28
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="Control"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 28
+shortcut = SubResource("Shortcut_nteut")
+text = "Exit"
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="pressed" from="Control/PlayButton" to="." method="play"]
+[connection signal="pressed" from="Control/OptionsButton" to="." method="settings"]
+[connection signal="pressed" from="Control/ExitButton" to="." method="exit"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://duqyf7lbd1rv3"]
+
+[ext_resource type="Script" path="res://src/World/menu.gd" id="1_1h46c"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_1h46c")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 0.498039)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeBtn" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -46.0
+offset_right = 140.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="RetryBtn" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.65
+anchor_right = 0.5
+anchor_bottom = 0.65
+offset_left = -140.0
+offset_top = -46.0
+offset_right = 140.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+
+[node name="MainMenuBtn" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.8
+offset_left = -140.0
+offset_top = -46.0
+offset_right = 140.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Main menu"
+
+[connection signal="pressed" from="ResumeBtn" to="." method="_resume"]
+[connection signal="pressed" from="RetryBtn" to="." method="_retry"]
+[connection signal="pressed" from="MainMenuBtn" to="." method="_main_menu"]

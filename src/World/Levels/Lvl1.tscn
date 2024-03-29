@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyp1bshh2j63y"]
+
+[ext_resource type="Script" path="res://src/World/Levels/Lvl1.gd" id="1_21am2"]
+[ext_resource type="Texture2D" uid="uid://dc3yvv3r6fa1c" path="res://sprites/world/ocean_background.png" id="2_7qkda"]
+[ext_resource type="PackedScene" uid="uid://ccq8yt0kk21jr" path="res://src/Player/player.tscn" id="3_diiig"]
+[ext_resource type="Texture2D" uid="uid://dka6ar0je14pn" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
+[ext_resource type="PackedScene" uid="uid://duqyf7lbd1rv3" path="res://src/World/menu.tscn" id="5_046pn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqcmf"]
+texture = ExtResource("4_dh4ss")
+texture_region_size = Vector2i(32, 32)
+1:5/0 = 0
+1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:5/0/physics_layer_0/angular_velocity = 0.0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:5/0 = 0
+2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:5/0/physics_layer_0/angular_velocity = 0.0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:5/0 = 0
+5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:5/0/physics_layer_0/angular_velocity = 0.0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_12fv2"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_gqcmf")
+
+[node name="World" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_21am2")
+
+[node name="OceanBackground" type="Sprite2D" parent="."]
+position = Vector2(-9.99994, -52)
+scale = Vector2(1.36883, 1.36883)
+texture = ExtResource("2_7qkda")
+
+[node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_diiig")]
+position = Vector2(-4, -65)
+scale = Vector2(2, 2)
+world = NodePath("..")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_12fv2")
+format = 2
+layer_0/tile_data = PackedInt32Array(131065, 327682, 5, 131066, 327682, 5, 131067, 327682, 5, 131068, 327682, 5, 131069, 327682, 5, 131070, 327682, 5, 131071, 327682, 5, 65536, 327682, 5, 65537, 327682, 5, 65538, 327682, 5, 65539, 327682, 5, 65540, 327682, 5, 65541, 327682, 5, 65542, 327682, 5, 65543, 327682, 5, 65525, 327682, 5, 65526, 327682, 5, 65524, 327682, 5, 10, 327682, 5, 11, 327682, 5, 12, 327682, 5, -131058, 327682, 5, -131057, 327682, 5, -131056, 327682, 5, -65552, 327682, 5, -65551, 327682, 5, -65550, 327682, 5)
+
+[node name="Menu" parent="." node_paths=PackedStringArray("world") instance=ExtResource("5_046pn")]
+visible = false
+world = NodePath("..")
+
+[node name="pos" type="CanvasLayer" parent="."]
+
+[node name="Pos" type="Label" parent="pos"]
+offset_left = 27.0
+offset_top = 27.0
+offset_right = 107.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "POS: "
