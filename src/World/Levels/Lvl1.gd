@@ -27,4 +27,4 @@ func _input(event):
 		game_paused = !game_paused
 
 func retry() -> void:
-	get_tree().change_scene_to_file("res://World/Levels/Lvl1.tscn")
+	get_tree().change_scene_to_file("res://src/World/Levels/Lvl1.tscn")

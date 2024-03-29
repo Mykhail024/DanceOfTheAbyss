@@ -15,7 +15,8 @@ func exit():
 	get_tree().quit();
 
 func play():
-	get_tree().change_scene_to_file("res://World/Levels/Lvl1.tscn")
+	get_tree().change_scene_to_file("res://src/World/Levels/Lvl1.tscn")
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func settings():
 	pass
