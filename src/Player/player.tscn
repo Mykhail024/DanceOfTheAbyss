@@ -373,7 +373,7 @@ _data = {
 "Run": SubResource("Animation_u08fb")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 process_mode = 1
 script = ExtResource("1_jtilq")
 

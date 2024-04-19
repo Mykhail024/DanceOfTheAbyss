@@ -13,6 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	position = world.PLAYER_SPAWN
+	velocity.y = 0
+	velocity.x = 0
 
 func _process(delta):
 	var player_pos = position.floor()

@@ -17,9 +17,6 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1366
-window/size/viewport_height=768
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 
@@ -31,6 +28,10 @@ animation_library={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+renderer/quality/msaa_2d=0
+renderer/canvas_textures/default_texture_filter=1
+renderer/quality/screen_space_aa=1

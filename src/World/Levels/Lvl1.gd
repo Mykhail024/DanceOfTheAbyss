@@ -15,7 +15,7 @@ var game_paused: bool = false:
 		get_tree().paused = game_paused
 		emit_signal("pause_toggled", game_paused)
 
-@onready var player : CharacterBody2D = $Player
+@onready var player : CharacterBody2D = $PlayerNode/Player
 @onready var posLabel : Label = $pos/Pos
 
 func _process(delta):
@@ -27,4 +27,5 @@ func _input(event):
 		game_paused = !game_paused
 
 func retry() -> void:
+	game_paused = false
 	get_tree().change_scene_to_file("res://src/World/Levels/Lvl1.tscn")
