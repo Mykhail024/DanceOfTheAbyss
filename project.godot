@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/resizable=false
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [importer_defaults]
@@ -25,6 +27,10 @@ window/stretch/mode="viewport"
 animation_library={
 "animation/fps": 60.0
 }
+
+[internationalization]
+
+locale/locale_filter_mode=0
 
 [rendering]
 
