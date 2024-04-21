@@ -233,8 +233,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x1nu"]
-size = Vector2(18, 28)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14ko4"]
+radius = 9.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_w4loe"]
 resource_name = "Fall"
@@ -380,13 +381,13 @@ script = ExtResource("1_jtilq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.41, 0.41)
 sprite_frames = SubResource("SpriteFrames_u6ub3")
-animation = &"Fall"
+animation = &"Run"
 frame = 1
 speed_scale = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
-shape = SubResource("RectangleShape2D_5x1nu")
+shape = SubResource("CapsuleShape2D_14ko4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.355, 1.355)

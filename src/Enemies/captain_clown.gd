@@ -1,12 +1,16 @@
 extends CharacterBody2D
+class_name CaptainClown
 
 const SPEED = 100.0
-const JUMP_VELOCITY = -280.0
+const JUMP_VELOCITY = -250.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var chase : bool = false
+var player_detected : bool = false
+var player_in_attack_area : bool = false
 var player : CharacterBody2D
+
+var attacks = ["Attack_1", "Attack_2", "Attack_3"]
 
 @onready var animSprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
@@ -15,6 +19,7 @@ func _ready():
 	set_floor_block_on_wall_enabled(false)
 	set_slide_on_ceiling_enabled(false)
 	player = get_node("../../PlayerNode/Player")
+
 
 func get_player_direction():
 	return (player.position - self.position).normalized()
@@ -28,16 +33,18 @@ func flip_to_player_direction(direction):
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
-	if chase:
+		
+	if player_in_attack_area:
+		velocity.x = 0
+		if(!animPlayer.is_playing() || animPlayer.current_animation == "Idle"):
+			animPlayer.play(attacks.pick_random())
+	elif player_detected:
 		if velocity.y > 0:
 			animPlayer.play("Fall_sword")
-		
 		var direction = get_player_direction()
 		
 		flip_to_player_direction(direction)
-		if (!animPlayer.is_playing()):
-			animPlayer.play("Run_sword")
+		animPlayer.play("Run_sword")
 		
 		if(is_on_wall() and is_on_floor()):
 			velocity.y = JUMP_VELOCITY
@@ -45,30 +52,29 @@ func _physics_process(delta):
 		velocity.x = direction.x * SPEED
 	else:
 		velocity.x = 0
-		if(!animPlayer.is_playing()):
-			animPlayer.play("Idle")
 		if velocity.y > 0:
 			animPlayer.play("Fall")
+		else:
+			if(!animPlayer.is_playing()):
+				animPlayer.play("Idle")
 	move_and_slide()
 
 func _on_player_detection_body_entered(body):
 	if (body.name == "Player"):
-		flip_to_player_direction(get_player_direction())
 		animPlayer.play("Sword_unsheathing")
 		await animPlayer.animation_finished
-		chase = true
+		player_detected = true
 
 func _on_player_detection_body_exited(body):
 	if (body.name == "Player"):
-		chase = false
+		player_detected = false
 		animPlayer.play("Sword_sheathing")
 
 func _on_attack_detection_body_entered(body):
 	if (body.name == "Player"):
-		chase = false
-		animPlayer.play("Attack")
+		player_in_attack_area = true
+		animPlayer.stop()
 
 func _on_attack_detection_body_exited(body):
 	if (body.name == "Player"):
-		chase = true
-		animPlayer.play("Run_sword")
+		player_in_attack_area = false

@@ -13,7 +13,10 @@ config_version=5
 config/name="Dance of the Abyss"
 run/main_scene="res://src/MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/image="res://Logo.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1500
 
 [display]
 
@@ -31,6 +34,17 @@ animation_library={
 [internationalization]
 
 locale/locale_filter_mode=0
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Items"
+
+[physics]
+
+2d/run_on_separate_thread=true
 
 [rendering]
 
