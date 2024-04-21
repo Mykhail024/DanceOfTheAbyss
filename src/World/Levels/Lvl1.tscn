@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyp1bshh2j63y"]
+[gd_scene load_steps=9 format=3 uid="uid://cyp1bshh2j63y"]
 
 [ext_resource type="Script" path="res://src/World/Levels/Lvl1.gd" id="1_21am2"]
 [ext_resource type="Texture2D" uid="uid://dc3yvv3r6fa1c" path="res://sprites/world/ocean_background.png" id="2_7qkda"]
 [ext_resource type="PackedScene" uid="uid://ccq8yt0kk21jr" path="res://src/Player/player.tscn" id="3_diiig"]
 [ext_resource type="Texture2D" uid="uid://dka6ar0je14pn" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
 [ext_resource type="PackedScene" uid="uid://duqyf7lbd1rv3" path="res://src/World/menu.tscn" id="5_046pn"]
+[ext_resource type="PackedScene" uid="uid://brrusa10muoeb" path="res://src/Enemies/captain_clown.tscn" id="6_dn7xp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqcmf"]
 texture = ExtResource("4_dh4ss")
@@ -40,15 +41,10 @@ position = Vector2(-9.99994, -52)
 scale = Vector2(1.36883, 1.36883)
 texture = ExtResource("2_7qkda")
 
-[node name="Player" parent="." node_paths=PackedStringArray("world") instance=ExtResource("3_diiig")]
-position = Vector2(-4, -65)
-scale = Vector2(2, 2)
-world = NodePath("..")
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_12fv2")
 format = 2
-layer_0/tile_data = PackedInt32Array(131065, 327682, 5, 131066, 327682, 5, 131067, 327682, 5, 131068, 327682, 5, 131069, 327682, 5, 131070, 327682, 5, 131071, 327682, 5, 65536, 327682, 5, 65537, 327682, 5, 65538, 327682, 5, 65539, 327682, 5, 65540, 327682, 5, 65541, 327682, 5, 65542, 327682, 5, 65543, 327682, 5, 65525, 327682, 5, 65526, 327682, 5, 65524, 327682, 5, 10, 327682, 5, 11, 327682, 5, 12, 327682, 5, -131058, 327682, 5, -131057, 327682, 5, -131056, 327682, 5, -65552, 327682, 5, -65551, 327682, 5, -65550, 327682, 5)
+layer_0/tile_data = PackedInt32Array(131065, 327682, 5, 131066, 327682, 5, 131067, 327682, 5, 131068, 327682, 5, 131069, 327682, 5, 131070, 327682, 5, 131071, 327682, 5, 65536, 327682, 5, 65537, 327682, 5, 65538, 327682, 5, 65539, 327682, 5, 65540, 327682, 5, 65541, 327682, 5, 65542, 327682, 5, 65543, 327682, 5, 65525, 327682, 5, 65526, 327682, 5, 65524, 327682, 5, 10, 327682, 5, 11, 327682, 5, 12, 327682, 5, -131058, 327682, 5, -131057, 327682, 5, -131056, 327682, 5, -65552, 327682, 5, -65551, 327682, 5, -65550, 327682, 5, 65544, 327682, 5, 65545, 327682, 5, 131063, 327682, 5, 131064, 327682, 5, -13, 327682, 5, -65523, 327682, 5, -131055, 65538, 5, -131054, 131074, 5, -131053, 196610, 5, -131052, 65538, 5, -131051, 131074, 5, -131050, 196610, 5, -131049, 65538, 5, -131048, 131074, 5, -131047, 196610, 5, -131046, 65538, 5, -131045, 131074, 5, -131044, 196610, 5, -65555, 65538, 5, -65554, 131074, 5, -65553, 196610, 5, -65558, 65538, 5, -65557, 131074, 5, -65556, 196610, 5, -65561, 65538, 5, -65560, 131074, 5, -65559, 196610, 5)
 
 [node name="Menu" parent="." node_paths=PackedStringArray("world") instance=ExtResource("5_046pn")]
 visible = false
@@ -63,3 +59,18 @@ offset_right = 107.0
 offset_bottom = 72.0
 theme_override_font_sizes/font_size = 32
 text = "POS: "
+
+[node name="PlayerNode" type="Node2D" parent="."]
+
+[node name="Player" parent="PlayerNode" node_paths=PackedStringArray("world") instance=ExtResource("3_diiig")]
+position = Vector2(-4, -65)
+scale = Vector2(2, 2)
+world = NodePath("../..")
+
+[node name="Mobs" type="Node2D" parent="."]
+
+[node name="CaptainClown" parent="Mobs" instance=ExtResource("6_dn7xp")]
+position = Vector2(476, -108)
+
+[node name="CaptainClown2" parent="Mobs" instance=ExtResource("6_dn7xp")]
+position = Vector2(-440, -107)

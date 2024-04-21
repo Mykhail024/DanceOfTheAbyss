@@ -1,0 +1,764 @@
+[gd_scene load_steps=65 format=3 uid="uid://brrusa10muoeb"]
+
+[ext_resource type="Script" path="res://src/Enemies/captain_clown.gd" id="1_hkgxw"]
+[ext_resource type="Texture2D" uid="uid://yasuclbbno4v" path="res://sprites/enemies/captain_clown/sword_attack_1/attack_1_01.png" id="2_lnhes"]
+[ext_resource type="Texture2D" uid="uid://cit7w28y13bb0" path="res://sprites/enemies/captain_clown/sword_attack_1/attack_1_02.png" id="3_gue50"]
+[ext_resource type="Texture2D" uid="uid://00bca4sv8bva" path="res://sprites/enemies/captain_clown/sword_attack_1/attack_1_03.png" id="4_ydqu5"]
+[ext_resource type="Texture2D" uid="uid://b8fyqnofxxfjj" path="res://sprites/enemies/captain_clown/sword_attack_2/attack_2_01.png" id="5_jt04l"]
+[ext_resource type="Texture2D" uid="uid://enqa61fxx62r" path="res://sprites/enemies/captain_clown/sword_attack_2/attack_2_02.png" id="6_v3u10"]
+[ext_resource type="Texture2D" uid="uid://cotfm3ig7uolh" path="res://sprites/enemies/captain_clown/sword_attack_2/attack_2_03.png" id="7_6oflf"]
+[ext_resource type="Texture2D" uid="uid://basusg7x74kk6" path="res://sprites/enemies/captain_clown/sword_attack_3/attack_3_01.png" id="8_1xjdq"]
+[ext_resource type="Texture2D" uid="uid://c361oqep4yeuc" path="res://sprites/enemies/captain_clown/sword_attack_3/attack_3_02.png" id="9_6y4cs"]
+[ext_resource type="Texture2D" uid="uid://fxcpfg3td6ch" path="res://sprites/enemies/captain_clown/sword_attack_3/attack_3_03.png" id="10_ffahj"]
+[ext_resource type="Texture2D" uid="uid://cnwlf2s35bbfv" path="res://sprites/enemies/captain_clown/fall/Fall 01.png" id="11_g47hf"]
+[ext_resource type="Texture2D" uid="uid://bsepfc28upv60" path="res://sprites/enemies/captain_clown/fall_sword/Fall Sword 01.png" id="12_057sx"]
+[ext_resource type="Texture2D" uid="uid://btqtnxfqrv681" path="res://sprites/enemies/captain_clown/idle/Idle 01.png" id="13_80w1q"]
+[ext_resource type="Texture2D" uid="uid://clrof26hjq8td" path="res://sprites/enemies/captain_clown/idle/Idle 02.png" id="14_pih7m"]
+[ext_resource type="Texture2D" uid="uid://bm881jdbgbhcr" path="res://sprites/enemies/captain_clown/idle/Idle 03.png" id="15_q5quc"]
+[ext_resource type="Texture2D" uid="uid://cdk414d34shs6" path="res://sprites/enemies/captain_clown/idle/Idle 04.png" id="16_60v52"]
+[ext_resource type="Texture2D" uid="uid://ce6qiia6ryp2d" path="res://sprites/enemies/captain_clown/idle/Idle 05.png" id="17_v3n68"]
+[ext_resource type="Texture2D" uid="uid://byvkxk2uux2f7" path="res://sprites/enemies/captain_clown/idle_sword/Idle Sword 01.png" id="18_w1t5a"]
+[ext_resource type="Texture2D" uid="uid://42vfinoeipa2" path="res://sprites/enemies/captain_clown/idle_sword/Idle Sword 02.png" id="19_bbptp"]
+[ext_resource type="Texture2D" uid="uid://77bd4wqmamxv" path="res://sprites/enemies/captain_clown/idle_sword/Idle Sword 03.png" id="20_s15vd"]
+[ext_resource type="Texture2D" uid="uid://clyqa8w8dh3ev" path="res://sprites/enemies/captain_clown/idle_sword/Idle Sword 04.png" id="21_tkvdd"]
+[ext_resource type="Texture2D" uid="uid://dkwpgyn2m17y5" path="res://sprites/enemies/captain_clown/idle_sword/Idle Sword 05.png" id="22_jw42h"]
+[ext_resource type="Texture2D" uid="uid://ci0sdsjvj72eo" path="res://sprites/enemies/captain_clown/jump/Jump 01.png" id="23_5nl6v"]
+[ext_resource type="Texture2D" uid="uid://bf17550hewhr2" path="res://sprites/enemies/captain_clown/jump/Jump 02.png" id="24_6amke"]
+[ext_resource type="Texture2D" uid="uid://g8ojbvjkffu2" path="res://sprites/enemies/captain_clown/jump/Jump 03.png" id="25_7yd2s"]
+[ext_resource type="Texture2D" uid="uid://djkxl7yccxltn" path="res://sprites/enemies/captain_clown/jump_sword/Jump Sword 01.png" id="26_jc735"]
+[ext_resource type="Texture2D" uid="uid://cgd7urvqimpfc" path="res://sprites/enemies/captain_clown/jump_sword/Jump Sword 02.png" id="27_8tfg3"]
+[ext_resource type="Texture2D" uid="uid://diyoxsdp61geg" path="res://sprites/enemies/captain_clown/jump_sword/Jump Sword 03.png" id="28_bbysa"]
+[ext_resource type="Texture2D" uid="uid://givvhgsd7jyp" path="res://sprites/enemies/captain_clown/run/Run 01.png" id="29_o0qos"]
+[ext_resource type="Texture2D" uid="uid://c4d63vd7uu3ty" path="res://sprites/enemies/captain_clown/run/Run 02.png" id="30_t3q4i"]
+[ext_resource type="Texture2D" uid="uid://cypx0b30esnw3" path="res://sprites/enemies/captain_clown/run/Run 03.png" id="31_b2c7v"]
+[ext_resource type="Texture2D" uid="uid://cfqxkgw2hnxxk" path="res://sprites/enemies/captain_clown/run/Run 04.png" id="32_fpp4c"]
+[ext_resource type="Texture2D" uid="uid://b5y6qmpydm1dg" path="res://sprites/enemies/captain_clown/run/Run 05.png" id="33_r7csi"]
+[ext_resource type="Texture2D" uid="uid://cjh5e8tgyg1pf" path="res://sprites/enemies/captain_clown/run/Run 06.png" id="34_6slcw"]
+[ext_resource type="Texture2D" uid="uid://ces1xrq60ebrh" path="res://sprites/enemies/captain_clown/run_sword/Run Sword 01.png" id="35_7bfeq"]
+[ext_resource type="Texture2D" uid="uid://ckdtdddun78vx" path="res://sprites/enemies/captain_clown/run_sword/Run Sword 02.png" id="36_qspyt"]
+[ext_resource type="Texture2D" uid="uid://c6rxvor3eecea" path="res://sprites/enemies/captain_clown/run_sword/Run Sword 03.png" id="37_6mxyr"]
+[ext_resource type="Texture2D" uid="uid://cxp5u1cmdu14w" path="res://sprites/enemies/captain_clown/run_sword/Run Sword 04.png" id="38_e34ci"]
+[ext_resource type="Texture2D" uid="uid://dutu4no0h87qn" path="res://sprites/enemies/captain_clown/run_sword/Run Sword 05.png" id="39_snsdy"]
+[ext_resource type="Texture2D" uid="uid://cvlgrrq6vs7d0" path="res://sprites/enemies/captain_clown/run_sword/Run Sword 06.png" id="40_vehaj"]
+[ext_resource type="Texture2D" uid="uid://ba38gtuljx648" path="res://sprites/enemies/captain_clown/throw_sword/Throw Sword 01.png" id="41_0jgen"]
+[ext_resource type="Texture2D" uid="uid://bx2o1v7gv374d" path="res://sprites/enemies/captain_clown/throw_sword/Throw Sword 02.png" id="42_337g2"]
+[ext_resource type="Texture2D" uid="uid://dulp00jugy3x8" path="res://sprites/enemies/captain_clown/throw_sword/Throw Sword 03.png" id="43_ttel5"]
+[ext_resource type="AudioStream" uid="uid://cajgqh8ngm64l" path="res://sounds/captain_clown/player_detected.ogg" id="44_1a14u"]
+[ext_resource type="AudioStream" uid="uid://cyldls1jn0oyk" path="res://sounds/captain_clown/player_fled.ogg" id="45_wmjt2"]
+[ext_resource type="AudioStream" uid="uid://dgrk3ax6yh7cn" path="res://sounds/captain_clown/sword_unsheathing .mp3" id="46_fwttp"]
+[ext_resource type="AudioStream" uid="uid://1rrv7f36qw0w" path="res://sounds/captain_clown/sword_sheathing .mp3" id="47_lcrp1"]
+[ext_resource type="AudioStream" uid="uid://dvy23ubpexwas" path="res://sounds/captain_clown/sword_attack.mp3" id="48_btams"]
+
+[sub_resource type="Animation" id="Animation_kstro"]
+resource_name = "Attack"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack_3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("48_btams")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y5s3c"]
+resource_name = "Fall_sword"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.119058),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Fall_sword"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.119058),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_x3xie"]
+resource_name = "Idle"
+length = 0.52
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_8ee4a"]
+resource_name = "Jump_sword"
+length = 0.484
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump_sword"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_g6xl8"]
+resource_name = "Player_detected"
+length = 0.3895
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("44_1a14u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.000879824),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8]
+}
+
+[sub_resource type="Animation" id="Animation_7kqvo"]
+resource_name = "Player_fled"
+length = 0.467
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("45_wmjt2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.000879824),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8]
+}
+
+[sub_resource type="Animation" id="Animation_yogsk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Fall"]
+}
+
+[sub_resource type="Animation" id="Animation_cvcy4"]
+resource_name = "Run_sword"
+length = 1.188
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Run_sword"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_u22ao"]
+resource_name = "Sword_sheathing"
+length = 0.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Throw_sword"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("47_lcrp1")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.65]
+}
+
+[sub_resource type="Animation" id="Animation_5jn3l"]
+resource_name = "Sword_unsheathing"
+length = 0.7
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Throw_sword"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("46_fwttp")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.65]
+}
+
+[sub_resource type="Animation" id="Animation_6m4dw"]
+resource_name = "Fall"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.120339),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Fall"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.120339),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8d10"]
+_data = {
+"Attack": SubResource("Animation_kstro"),
+"Fall": SubResource("Animation_6m4dw"),
+"Fall_sword": SubResource("Animation_y5s3c"),
+"Idle": SubResource("Animation_x3xie"),
+"Jump_sword": SubResource("Animation_8ee4a"),
+"Player_detected": SubResource("Animation_g6xl8"),
+"Player_fled": SubResource("Animation_7kqvo"),
+"RESET": SubResource("Animation_yogsk"),
+"Run_sword": SubResource("Animation_cvcy4"),
+"Sword_sheathing": SubResource("Animation_u22ao"),
+"Sword_unsheathing": SubResource("Animation_5jn3l")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfaex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lnhes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gue50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ydqu5")
+}],
+"loop": true,
+"name": &"Attack_1",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jt04l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v3u10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6oflf")
+}],
+"loop": true,
+"name": &"Attack_2",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1xjdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6y4cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ffahj")
+}],
+"loop": true,
+"name": &"Attack_3",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_g47hf")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_057sx")
+}],
+"loop": true,
+"name": &"Fall_sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_80w1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pih7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_q5quc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_60v52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_v3n68")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_w1t5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bbptp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_s15vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_tkvdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jw42h")
+}],
+"loop": true,
+"name": &"Idle_sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_5nl6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6amke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7yd2s")
+}],
+"loop": false,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_jc735")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8tfg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_bbysa")
+}],
+"loop": false,
+"name": &"Jump_sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_o0qos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_t3q4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_b2c7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_fpp4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_r7csi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_6slcw")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_7bfeq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_qspyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_6mxyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_e34ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_snsdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_vehaj")
+}],
+"loop": true,
+"name": &"Run_sword",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_0jgen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_337g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ttel5")
+}],
+"loop": false,
+"name": &"Throw_sword",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hr72"]
+size = Vector2(21, 27.6667)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fub3"]
+radius = 235.001
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nnd74"]
+size = Vector2(25.5556, 16.6667)
+
+[node name="CaptainClown" type="CharacterBody2D"]
+process_mode = 1
+scale = Vector2(1.8, 1.8)
+script = ExtResource("1_hkgxw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h8d10")
+}
+autoplay = "Idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nfaex")
+animation = &"Fall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, -2.16667)
+shape = SubResource("RectangleShape2D_7hr72")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_3fub3")
+
+[node name="AttackDetection" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetection"]
+position = Vector2(-1.11111, -0.555556)
+shape = SubResource("RectangleShape2D_nnd74")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="AttackDetection" to="." method="_on_attack_detection_body_entered"]
+[connection signal="body_exited" from="AttackDetection" to="." method="_on_attack_detection_body_exited"]

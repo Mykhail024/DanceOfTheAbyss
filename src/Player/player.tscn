@@ -234,7 +234,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5x1nu"]
-size = Vector2(20, 28)
+size = Vector2(18, 28)
 
 [sub_resource type="Animation" id="Animation_w4loe"]
 resource_name = "Fall"
@@ -373,14 +373,14 @@ _data = {
 "Run": SubResource("Animation_u08fb")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 process_mode = 1
 script = ExtResource("1_jtilq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.41, 0.41)
 sprite_frames = SubResource("SpriteFrames_u6ub3")
-animation = &"Idle"
+animation = &"Fall"
 frame = 1
 speed_scale = 0.8
 
@@ -399,3 +399,6 @@ libraries = {
 "": SubResource("AnimationLibrary_3o6aw")
 }
 autoplay = "Idle"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
