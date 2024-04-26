@@ -100,6 +100,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"player_kick"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xdrkh"]
 resource_name = "Attack_2"
@@ -152,6 +166,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"player_kick"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_n5aic"]
 resource_name = "Attack_3"
@@ -203,6 +231,20 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"player_kick"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_6m4dw"]
@@ -812,7 +854,7 @@ radius = 7.72222
 height = 27.7778
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fub3"]
-radius = 235.001
+radius = 367.518
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnd74"]
 size = Vector2(32.2222, 16.6667)
@@ -821,6 +863,8 @@ size = Vector2(32.2222, 16.6667)
 process_mode = 1
 scale = Vector2(1.8, 1.8)
 script = ExtResource("1_hkgxw")
+SPEED = 260.0
+JUMP_VELOCITY = -220.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -833,17 +877,16 @@ sprite_frames = SubResource("SpriteFrames_nfaex")
 animation = &"Fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -2.22222)
 shape = SubResource("CapsuleShape2D_pii3i")
 
 [node name="PlayerDetection" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_3fub3")
 
 [node name="AttackDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetection"]
 position = Vector2(1.11111, 0)
@@ -861,6 +904,30 @@ scale = Vector2(1.8, 1.8)
 stream = ExtResource("45_wmjt2")
 pitch_scale = 0.8
 max_distance = 3000.0
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="."]
+position = Vector2(8, 10)
+target_position = Vector2(0, 100)
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2(-8, 10)
+target_position = Vector2(0, 100)
+
+[node name="RayCast2D_Platform_Right" type="RayCast2D" parent="."]
+position = Vector2(8, 15)
+target_position = Vector2(25, 0)
+
+[node name="RayCast2D_Platform_Left" type="RayCast2D" parent="."]
+position = Vector2(-8, 15)
+target_position = Vector2(-25, 0)
+
+[node name="RayCast2D_Platform_Right2" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(25, 0)
+
+[node name="RayCast2D_Platform_Left2" type="RayCast2D" parent="."]
+position = Vector2(-8, 0)
+target_position = Vector2(-25, 0)
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

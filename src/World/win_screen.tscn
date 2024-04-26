@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpnpq8dw83ivq"]
+
+[ext_resource type="Script" path="res://src/World/win_screen.gd" id="1_llft2"]
+
+[node name="WinScreen" type="CanvasLayer"]
+process_mode = 2
+visible = false
+script = ExtResource("1_llft2")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 462.0
+offset_top = 309.0
+offset_right = 933.0
+offset_bottom = 507.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 45
+text = "You Win.
+Press Enter to continue"
+horizontal_alignment = 1
