@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://q71y61g71n0y"]
+
+[ext_resource type="Script" path="res://src/World/UI.gd" id="1_d1i66"]
+[ext_resource type="Texture2D" uid="uid://c5bp8ssgj18lo" path="res://sprites/ui/HealthBar.png" id="2_tlwm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjlir"]
+atlas = ExtResource("2_tlwm0")
+region = Rect2(1, 35, 78, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg35s"]
+atlas = ExtResource("2_tlwm0")
+region = Rect2(1, 19, 78, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atwb5"]
+atlas = ExtResource("2_tlwm0")
+region = Rect2(1, 3, 78, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1qjr"]
+atlas = ExtResource("2_tlwm0")
+region = Rect2(1, 19, 78, 10)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_d1i66")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 177.0
+offset_bottom = 78.0
+
+[node name="Money" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 36.0
+offset_right = 124.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 26
+text = "Money: 0"
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 51.0
+offset_right = 51.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HealthUnder" type="TextureProgressBar" parent="Health"]
+layout_mode = 2
+offset_left = -19.5
+offset_top = 5.0
+offset_right = 58.5
+offset_bottom = 15.0
+texture_under = SubResource("AtlasTexture_kjlir")
+texture_progress = SubResource("AtlasTexture_hg35s")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="HealthOver" type="TextureProgressBar" parent="Health"]
+layout_mode = 2
+offset_left = -19.5
+offset_top = 5.0
+offset_right = 60.5
+offset_bottom = 15.0
+texture_over = SubResource("AtlasTexture_atwb5")
+texture_progress = SubResource("AtlasTexture_d1qjr")
+tint_progress = Color(0.0862745, 0.729412, 0, 1)
+
+[node name="Cordinates" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 722.0
+offset_right = 87.0
+offset_bottom = 767.0
+theme_override_font_sizes/font_size = 32
+text = "POS: "

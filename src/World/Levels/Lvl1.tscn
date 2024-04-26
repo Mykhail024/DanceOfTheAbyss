@@ -1,11 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyp1bshh2j63y"]
+[gd_scene load_steps=19 format=3 uid="uid://cyp1bshh2j63y"]
 
 [ext_resource type="Script" path="res://src/World/Levels/Lvl1.gd" id="1_21am2"]
-[ext_resource type="Texture2D" uid="uid://dc3yvv3r6fa1c" path="res://sprites/world/ocean_background.png" id="2_7qkda"]
+[ext_resource type="PackedScene" uid="uid://cxy14bt7wht80" path="res://src/World/parallax_background.tscn" id="2_7tebq"]
+[ext_resource type="Texture2D" uid="uid://d3ch8ox8stj3e" path="res://sprites/world/Barrel_1.png" id="3_c7etb"]
 [ext_resource type="PackedScene" uid="uid://ccq8yt0kk21jr" path="res://src/Player/player.tscn" id="3_diiig"]
 [ext_resource type="Texture2D" uid="uid://dka6ar0je14pn" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
 [ext_resource type="PackedScene" uid="uid://duqyf7lbd1rv3" path="res://src/World/menu.tscn" id="5_046pn"]
+[ext_resource type="Texture2D" uid="uid://byqyjfa4l3qau" path="res://sprites/world/Barrel_2.png" id="5_pe1h8"]
 [ext_resource type="PackedScene" uid="uid://brrusa10muoeb" path="res://src/Enemies/captain_clown.tscn" id="6_dn7xp"]
+[ext_resource type="PackedScene" uid="uid://citklfnqjlwpb" path="res://src/World/money.tscn" id="6_w3y14"]
+[ext_resource type="PackedScene" uid="uid://bpnpq8dw83ivq" path="res://src/World/win_screen.tscn" id="10_jev3a"]
+[ext_resource type="PackedScene" uid="uid://q71y61g71n0y" path="res://src/World/UI.tscn" id="15_hl7sa"]
+[ext_resource type="PackedScene" uid="uid://dvm7pkdn16g7o" path="res://src/World/dead_screen.tscn" id="16_8uefy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57ry7"]
+texture = ExtResource("3_c7etb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqcmf"]
 texture = ExtResource("4_dh4ss")
@@ -27,38 +40,56 @@ texture_region_size = Vector2i(32, 32)
 5:5/0/physics_layer_0/angular_velocity = 0.0
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfjk2"]
+texture = ExtResource("5_pe1h8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_12fv2"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_gqcmf")
+sources/1 = SubResource("TileSetAtlasSource_57ry7")
+sources/3 = SubResource("TileSetAtlasSource_mfjk2")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2hbsb"]
+scenes/1/scene = ExtResource("6_w3y14")
+
+[sub_resource type="TileSet" id="TileSet_6n0bi"]
+sources/0 = SubResource("TileSetScenesCollectionSource_2hbsb")
 
 [node name="World" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_21am2")
 
-[node name="OceanBackground" type="Sprite2D" parent="."]
-position = Vector2(-9.99994, -52)
-scale = Vector2(1.36883, 1.36883)
-texture = ExtResource("2_7qkda")
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_7tebq")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_12fv2")
 format = 2
-layer_0/tile_data = PackedInt32Array(131065, 327682, 5, 131066, 327682, 5, 131067, 327682, 5, 131068, 327682, 5, 131069, 327682, 5, 131070, 327682, 5, 131071, 327682, 5, 65536, 327682, 5, 65537, 327682, 5, 65538, 327682, 5, 65539, 327682, 5, 65540, 327682, 5, 65541, 327682, 5, 65542, 327682, 5, 65543, 327682, 5, 65525, 327682, 5, 65526, 327682, 5, 65524, 327682, 5, 10, 327682, 5, 11, 327682, 5, 12, 327682, 5, -131058, 327682, 5, -131057, 327682, 5, -131056, 327682, 5, -65552, 327682, 5, -65551, 327682, 5, -65550, 327682, 5, 65544, 327682, 5, 65545, 327682, 5, 131063, 327682, 5, 131064, 327682, 5, -13, 327682, 5, -65523, 327682, 5, -131055, 65538, 5, -131054, 131074, 5, -131053, 196610, 5, -131052, 65538, 5, -131051, 131074, 5, -131050, 196610, 5, -131049, 65538, 5, -131048, 131074, 5, -131047, 196610, 5, -131046, 65538, 5, -131045, 131074, 5, -131044, 196610, 5, -65555, 65538, 5, -65554, 131074, 5, -65553, 196610, 5, -65558, 65538, 5, -65557, 131074, 5, -65556, 196610, 5, -65561, 65538, 5, -65560, 131074, 5, -65559, 196610, 5)
+layer_0/tile_data = PackedInt32Array(131065, 327682, 5, 131066, 327682, 5, 131067, 327682, 5, 131068, 327682, 5, 131069, 327682, 5, 131070, 327682, 5, 131071, 327682, 5, 65536, 327682, 5, 65537, 327682, 5, 65538, 327682, 5, 65539, 327682, 5, 65540, 327682, 5, 65541, 327682, 5, 65542, 327682, 5, 65543, 327682, 5, 65525, 327682, 5, 65526, 327682, 5, 65524, 327682, 5, 10, 327682, 5, 11, 327682, 5, 12, 327682, 5, -131058, 327682, 5, -131057, 327682, 5, -131056, 327682, 5, -65551, 327682, 5, -65550, 327682, 5, 65544, 327682, 5, 65545, 327682, 5, 131063, 327682, 5, 131064, 327682, 5, -13, 327682, 5, -65523, 327682, 5, -131055, 65538, 5, 3, 1, 0, -65552, 327682, 5, -131090, 327682, 5, -131091, 327682, 5, -196629, 327682, 5, -196630, 327682, 5, -196631, 327682, 5, -196632, 327682, 5, -196633, 327682, 5, -131053, 327682, 5, -131052, 327682, 5, -131051, 327682, 5, -131050, 327682, 5, -196584, 327682, 5, -196583, 327682, 5, -196582, 327682, 5, -196581, 327682, 5, -131043, 327682, 5, -131042, 327682, 5, -131041, 327682, 5, -131040, 327682, 5, -131037, 65538, 5, -131036, 131074, 5, -131035, 196610, 5, -131031, 65538, 5, -131030, 131074, 5, -131029, 196610, 5, -131034, 327682, 5)
 
-[node name="Menu" parent="." node_paths=PackedStringArray("world") instance=ExtResource("5_046pn")]
+[node name="Money" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_6n0bi")
+format = 2
+layer_0/tile_data = PackedInt32Array(65529, 0, 65536, 65530, 0, 65536, 7, 0, 65536, -196589, 0, 65536, -196588, 0, 65536, -196587, 0, 65536, -196586, 0, 65536, -196578, 0, 65536, -196577, 0, 65536, -196570, 0, 65536, -196571, 0, 65536, -196572, 0, 65536, -196573, 0, 65536, -262169, 0, 65536, -262168, 0, 65536, -262167, 0, 65536, -262166, 0, 65536, -262165, 0, 65536, -196626, 0, 65536, -196627, 0, 65536, -11, 0, 65536, -10, 0, 65536, 65531, 0, 65536, 8, 0, 65536)
+
+[node name="Controls" type="Node2D" parent="."]
+
+[node name="Menu" parent="Controls" node_paths=PackedStringArray("world") instance=ExtResource("5_046pn")]
+world = NodePath("../..")
+
+[node name="UI" parent="Controls" node_paths=PackedStringArray("player") instance=ExtResource("15_hl7sa")]
+player = NodePath("../../PlayerNode/Player")
+
+[node name="DeadScreen" parent="Controls" node_paths=PackedStringArray("world") instance=ExtResource("16_8uefy")]
 visible = false
-world = NodePath("..")
+world = NodePath("../..")
 
-[node name="pos" type="CanvasLayer" parent="."]
-
-[node name="Pos" type="Label" parent="pos"]
-offset_left = 27.0
-offset_top = 27.0
-offset_right = 107.0
-offset_bottom = 72.0
-theme_override_font_sizes/font_size = 32
-text = "POS: "
+[node name="WinScreen" parent="Controls" instance=ExtResource("10_jev3a")]
 
 [node name="PlayerNode" type="Node2D" parent="."]
 
