@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://citklfnqjlwpb"]
 
 [ext_resource type="Script" path="res://src/World/money.gd" id="1_phwm6"]
-[ext_resource type="Texture2D" uid="uid://kka7rnqjlyy6" path="res://sprites/world/bottle.png" id="2_5y21o"]
+[ext_resource type="Texture2D" uid="uid://qrv65d2sccji" path="res://sprites/world/bottle.png" id="2_5y21o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ion3"]
 size = Vector2(7, 14)

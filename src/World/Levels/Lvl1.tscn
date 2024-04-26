@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://cyp1bshh2j63y"]
+[gd_scene load_steps=20 format=3 uid="uid://cyp1bshh2j63y"]
 
 [ext_resource type="Script" path="res://src/World/Levels/Lvl1.gd" id="1_21am2"]
 [ext_resource type="PackedScene" uid="uid://cxy14bt7wht80" path="res://src/World/parallax_background.tscn" id="2_7tebq"]
-[ext_resource type="Texture2D" uid="uid://d3ch8ox8stj3e" path="res://sprites/world/Barrel_1.png" id="3_c7etb"]
+[ext_resource type="Texture2D" uid="uid://oikdgma8uqsf" path="res://sprites/world/Barrel_1.png" id="3_c7etb"]
 [ext_resource type="PackedScene" uid="uid://ccq8yt0kk21jr" path="res://src/Player/player.tscn" id="3_diiig"]
-[ext_resource type="Texture2D" uid="uid://dka6ar0je14pn" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
+[ext_resource type="Texture2D" uid="uid://114rmgn445u6" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
 [ext_resource type="PackedScene" uid="uid://duqyf7lbd1rv3" path="res://src/World/menu.tscn" id="5_046pn"]
-[ext_resource type="Texture2D" uid="uid://byqyjfa4l3qau" path="res://sprites/world/Barrel_2.png" id="5_pe1h8"]
+[ext_resource type="Texture2D" uid="uid://dmxquwabuupka" path="res://sprites/world/Barrel_2.png" id="5_pe1h8"]
 [ext_resource type="PackedScene" uid="uid://brrusa10muoeb" path="res://src/Enemies/captain_clown.tscn" id="6_dn7xp"]
 [ext_resource type="PackedScene" uid="uid://citklfnqjlwpb" path="res://src/World/money.tscn" id="6_w3y14"]
 [ext_resource type="PackedScene" uid="uid://bpnpq8dw83ivq" path="res://src/World/win_screen.tscn" id="10_jev3a"]
+[ext_resource type="PackedScene" uid="uid://d4amkxmuhrhn7" path="res://src/World/next_level_potion.tscn" id="13_2twcy"]
 [ext_resource type="PackedScene" uid="uid://q71y61g71n0y" path="res://src/World/UI.tscn" id="15_hl7sa"]
 [ext_resource type="PackedScene" uid="uid://dvm7pkdn16g7o" path="res://src/World/dead_screen.tscn" id="16_8uefy"]
 
@@ -91,6 +92,33 @@ world = NodePath("../..")
 
 [node name="WinScreen" parent="Controls" instance=ExtResource("10_jev3a")]
 
+[node name="GoToPotion" type="CanvasLayer" parent="Controls"]
+visible = false
+
+[node name="Panel" type="Panel" parent="Controls/GoToPotion"]
+offset_left = 301.0
+offset_top = 192.0
+offset_right = 1080.0
+offset_bottom = 271.0
+
+[node name="GoToPotionLabel" type="Label" parent="Controls/GoToPotion"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -124.0
+offset_top = -16.0
+offset_right = 141.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 46
+text = "Please go to the center of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayerNode" type="Node2D" parent="."]
 
 [node name="Player" parent="PlayerNode" node_paths=PackedStringArray("world") instance=ExtResource("3_diiig")]
@@ -105,3 +133,6 @@ position = Vector2(476, -108)
 
 [node name="CaptainClown2" parent="Mobs" instance=ExtResource("6_dn7xp")]
 position = Vector2(-440, -107)
+
+[node name="NextLevelPotion" parent="." instance=ExtResource("13_2twcy")]
+position = Vector2(0, -36)
