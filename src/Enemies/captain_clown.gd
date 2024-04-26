@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name CaptainClown
 
-@export var SPEED : float = 1000
-@export var JUMP_VELOCITY : float = -250.0
+@export var SPEED : float = 250
+@export var JUMP_VELOCITY : float = -220.0
 @export var damage : float = 50
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

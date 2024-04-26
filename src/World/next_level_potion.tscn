@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4amkxmuhrhn7"]
+
+[ext_resource type="Texture2D" uid="uid://bsyx2isotxbw5" path="res://sprites/world/magic_bootle.png" id="1_2bune"]
+[ext_resource type="Script" path="res://src/World/next_level_potion.gd" id="1_pu3wr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnbxp"]
+atlas = ExtResource("1_2bune")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l5bd"]
+atlas = ExtResource("1_2bune")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfnuw"]
+atlas = ExtResource("1_2bune")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k1g1"]
+atlas = ExtResource("1_2bune")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccmin"]
+atlas = ExtResource("1_2bune")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ec22n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnbxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l5bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfnuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k1g1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ccmin")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_ccmin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k1g1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfnuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l5bd")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_hnbxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l687"]
+size = Vector2(7, 14)
+
+[node name="NextLevelPotion" type="Node2D"]
+script = ExtResource("1_pu3wr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ec22n")
+autoplay = "default"
+frame_progress = 0.6713
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 9)
+shape = SubResource("RectangleShape2D_0l687")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_body_entered"]

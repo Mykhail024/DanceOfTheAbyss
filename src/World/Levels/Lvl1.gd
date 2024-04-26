@@ -16,7 +16,8 @@ func _ready():
 
 func check_win(money : int):
 	if(world_money <= $PlayerNode/Player.money):
-		$Controls/WinScreen.show_win_screen()
+		$NextLevelPotion.show_potion()
+		$Controls/GoToPotion.visible = true
 
 var game_paused: bool = false:
 	get:
