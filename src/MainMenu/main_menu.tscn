@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4gmpnbjs8u4u"]
+[gd_scene load_steps=8 format=3 uid="uid://c4gmpnbjs8u4u"]
 
 [ext_resource type="Script" path="res://src/MainMenu/main_menu.gd" id="1_g25y5"]
-[ext_resource type="Texture2D" uid="uid://biwxdniurhe2s" path="res://sprites/main_menu/main_menu_background.jpg" id="2_jq6di"]
+[ext_resource type="Texture2D" uid="uid://cxdtt0h7xf1f4" path="res://sprites/main_menu/main_menu_background.jpg" id="2_jq6di"]
+[ext_resource type="AudioStream" uid="uid://dh12i0upen4q6" path="res://sounds/background.mp3" id="3_o1okv"]
 
 [sub_resource type="SystemFont" id="SystemFont_3obnk"]
 font_names = PackedStringArray("Noto Sans")
@@ -115,6 +116,10 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 28
 shortcut = SubResource("Shortcut_nteut")
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o1okv")
+autoplay = true
 
 [connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
 [connection signal="pressed" from="Control/PlayButton" to="." method="play"]

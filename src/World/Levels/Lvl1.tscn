@@ -1,16 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://cyp1bshh2j63y"]
+[gd_scene load_steps=23 format=3 uid="uid://cyp1bshh2j63y"]
 
 [ext_resource type="Script" path="res://src/World/Levels/Lvl1.gd" id="1_21am2"]
 [ext_resource type="PackedScene" uid="uid://cxy14bt7wht80" path="res://src/World/parallax_background.tscn" id="2_7tebq"]
-[ext_resource type="Texture2D" uid="uid://oikdgma8uqsf" path="res://sprites/world/Barrel_1.png" id="3_c7etb"]
+[ext_resource type="Texture2D" uid="uid://d3ch8ox8stj3e" path="res://sprites/world/Barrel_1.png" id="3_c7etb"]
 [ext_resource type="PackedScene" uid="uid://ccq8yt0kk21jr" path="res://src/Player/player.tscn" id="3_diiig"]
-[ext_resource type="Texture2D" uid="uid://114rmgn445u6" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
+[ext_resource type="Texture2D" uid="uid://c4jqiysllii3e" path="res://sprites/world/wood_platform_1.png" id="3_w3ibj"]
+[ext_resource type="Texture2D" uid="uid://dka6ar0je14pn" path="res://sprites/world/Terrain and Back Wall (32x32).png" id="4_dh4ss"]
 [ext_resource type="PackedScene" uid="uid://duqyf7lbd1rv3" path="res://src/World/menu.tscn" id="5_046pn"]
-[ext_resource type="Texture2D" uid="uid://dmxquwabuupka" path="res://sprites/world/Barrel_2.png" id="5_pe1h8"]
+[ext_resource type="Texture2D" uid="uid://byqyjfa4l3qau" path="res://sprites/world/Barrel_2.png" id="5_pe1h8"]
 [ext_resource type="PackedScene" uid="uid://brrusa10muoeb" path="res://src/Enemies/captain_clown.tscn" id="6_dn7xp"]
 [ext_resource type="PackedScene" uid="uid://citklfnqjlwpb" path="res://src/World/money.tscn" id="6_w3y14"]
 [ext_resource type="PackedScene" uid="uid://bpnpq8dw83ivq" path="res://src/World/win_screen.tscn" id="10_jev3a"]
 [ext_resource type="PackedScene" uid="uid://d4amkxmuhrhn7" path="res://src/World/next_level_potion.tscn" id="13_2twcy"]
+[ext_resource type="AudioStream" uid="uid://dxgk4guln83a4" path="res://sounds/lvl.mp3" id="15_6xu3m"]
 [ext_resource type="PackedScene" uid="uid://q71y61g71n0y" path="res://src/World/UI.tscn" id="15_hl7sa"]
 [ext_resource type="PackedScene" uid="uid://dvm7pkdn16g7o" path="res://src/World/dead_screen.tscn" id="16_8uefy"]
 
@@ -27,19 +29,15 @@ texture_region_size = Vector2i(32, 32)
 1:5/0 = 0
 1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:5/0/physics_layer_0/angular_velocity = 0.0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:5/0 = 0
 2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:5/0/physics_layer_0/angular_velocity = 0.0
-2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:5/0 = 0
 3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:5/0/physics_layer_0/angular_velocity = 0.0
-3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:5/0 = 0
 5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:5/0/physics_layer_0/angular_velocity = 0.0
-5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfjk2"]
 texture = ExtResource("5_pe1h8")
@@ -48,12 +46,24 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8sxij"]
+texture = ExtResource("3_w3ibj")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_12fv2"]
-tile_size = Vector2i(32, 32)
+tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_gqcmf")
 sources/1 = SubResource("TileSetAtlasSource_57ry7")
 sources/3 = SubResource("TileSetAtlasSource_mfjk2")
+sources/4 = SubResource("TileSetAtlasSource_8sxij")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2hbsb"]
 scenes/1/scene = ExtResource("6_w3y14")
@@ -70,13 +80,13 @@ script = ExtResource("1_21am2")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_12fv2")
 format = 2
-layer_0/tile_data = PackedInt32Array(131065, 327682, 5, 131066, 327682, 5, 131067, 327682, 5, 131068, 327682, 5, 131069, 327682, 5, 131070, 327682, 5, 131071, 327682, 5, 65536, 327682, 5, 65537, 327682, 5, 65538, 327682, 5, 65539, 327682, 5, 65540, 327682, 5, 65541, 327682, 5, 65542, 327682, 5, 65543, 327682, 5, 65525, 327682, 5, 65526, 327682, 5, 65524, 327682, 5, 10, 327682, 5, 11, 327682, 5, 12, 327682, 5, -131058, 327682, 5, -131057, 327682, 5, -131056, 327682, 5, -65551, 327682, 5, -65550, 327682, 5, 65544, 327682, 5, 65545, 327682, 5, 131063, 327682, 5, 131064, 327682, 5, -13, 327682, 5, -65523, 327682, 5, -131055, 65538, 5, 3, 1, 0, -65552, 327682, 5, -131090, 327682, 5, -131091, 327682, 5, -196629, 327682, 5, -196630, 327682, 5, -196631, 327682, 5, -196632, 327682, 5, -196633, 327682, 5, -131053, 327682, 5, -131052, 327682, 5, -131051, 327682, 5, -131050, 327682, 5, -196584, 327682, 5, -196583, 327682, 5, -196582, 327682, 5, -196581, 327682, 5, -131043, 327682, 5, -131042, 327682, 5, -131041, 327682, 5, -131040, 327682, 5, -131037, 65538, 5, -131036, 131074, 5, -131035, 196610, 5, -131031, 65538, 5, -131030, 131074, 5, -131029, 196610, 5, -131034, 327682, 5)
+layer_0/tile_data = PackedInt32Array(-5, 4, 0, -65543, 4, 0, -65544, 4, 0, -65547, 4, 0, -65546, 4, 0, -14, 4, 0, -15, 4, 0, -65530, 4, 0, -65529, 4, 0, 9, 4, 0, -65523, 4, 0, 10, 4, 0, 65533, 4, 0, 65534, 4, 0, 65535, 4, 0, 0, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, -13, 4, 0, 11, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0)
 
 [node name="Money" type="TileMap" parent="."]
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_6n0bi")
 format = 2
-layer_0/tile_data = PackedInt32Array(65529, 0, 65536, 65530, 0, 65536, 7, 0, 65536, -196589, 0, 65536, -196588, 0, 65536, -196587, 0, 65536, -196586, 0, 65536, -196578, 0, 65536, -196577, 0, 65536, -196570, 0, 65536, -196571, 0, 65536, -196572, 0, 65536, -196573, 0, 65536, -262169, 0, 65536, -262168, 0, 65536, -262167, 0, 65536, -262166, 0, 65536, -262165, 0, 65536, -196626, 0, 65536, -196627, 0, 65536, -11, 0, 65536, -10, 0, 65536, 65531, 0, 65536, 8, 0, 65536)
+layer_0/tile_data = PackedInt32Array(-131101, 0, 65536, -131100, 0, 65536, -131099, 0, 65536, -262165, 0, 65536, -262164, 0, 65536, -262159, 0, 65536, -262158, 0, 65536, -65528, 0, 65536, -65529, 0, 65536, -65530, 0, 65536, -5, 0, 65536, -4, 0, 65536, -3, 0, 65536, -2, 0, 65536, -196595, 0, 65536, -196594, 0, 65536, -65516, 0, 65536, -65517, 0, 65536, -65515, 0, 65536, -65514, 0, 65536, -196581, 0, 65536, -196580, 0, 65536, -196579, 0, 65536, -196578, 0, 65536, -196577, 0, 65536, -196576, 0, 65536, -131082, 0, 65536, -131081, 0, 65536)
 
 [node name="Controls" type="Node2D" parent="."]
 
@@ -131,8 +141,9 @@ world = NodePath("../..")
 [node name="CaptainClown" parent="Mobs" instance=ExtResource("6_dn7xp")]
 position = Vector2(476, -108)
 
-[node name="CaptainClown2" parent="Mobs" instance=ExtResource("6_dn7xp")]
-position = Vector2(-440, -107)
-
 [node name="NextLevelPotion" parent="." instance=ExtResource("13_2twcy")]
-position = Vector2(0, -36)
+position = Vector2(43, -77)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_6xu3m")
+autoplay = true
